@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Dice from "./Dice";
 import { IDiceResults } from "../types/DiceResults";
 import { setCookies, getCookies, removeCookies } from "../utils/cookies";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: auto;
@@ -92,12 +92,6 @@ const Li = styled.li`
   margin-top: 2px;
 `;
 
-const A = styled.a`
-  color: #1f0454;
-  margin-bottom: 10px;
-  font-size: 18px;
-  text-decoration: none;
-`;
 
 const Result = styled.div`
   color: #1f0454;
@@ -195,10 +189,12 @@ export const DicePanel = () => {
   const handleDataChange = (event: any) => {
     const { value } = event.target;
     setExpression(value);
-    if (!(
-      (value.indexOf("d") < 0 && value.indexOf("D") < 0) ||
-      value.indexOf("+") < 0
-    )) {
+    if (
+      !(
+        (value.indexOf("d") < 0 && value.indexOf("D") < 0) ||
+        value.indexOf("+") < 0
+      )
+    ) {
       setData(value);
     }
   };
@@ -276,7 +272,15 @@ export const DicePanel = () => {
             <div className={`List+${index}`}>
               {index !== 0 ? (
                 <Li>
-                  <Link to={`/detail/${index}`}>
+                  <Link
+                    to={`/detail/${index}`}
+                    style={{
+                      textDecoration: "none",
+                      color: "#1f0454",
+                      marginBottom: "10px",
+                      fontSize: "18px",
+                    }}
+                  >
                     Expression:{log.Expression} Total: {log.Total}
                   </Link>
                 </Li>
