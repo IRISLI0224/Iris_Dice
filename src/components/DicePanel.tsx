@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Dice from "./Dice";
 import { IDiceResults } from "../types/DiceResults";
 import { setCookies, getCookies, removeCookies } from "../utils/cookies";
+import {Link} from "react-router-dom";
 
 const Container = styled.div`
   height: auto;
@@ -275,9 +276,9 @@ export const DicePanel = () => {
             <div className={`List+${index}`}>
               {index !== 0 ? (
                 <Li>
-                  <A href={`/detail/${index}`}>
+                  <Link to={`/detail/${index}`}>
                     Expression:{log.Expression} Total: {log.Total}
-                  </A>
+                  </Link>
                 </Li>
               ) : null}
             </div>
